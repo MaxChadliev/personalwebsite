@@ -152,7 +152,7 @@ if (window.innerWidth > 760) {
     
     };
   
-    var word = ["FULL-STACK DEVELOPER", "MAX CHADLIEV"];
+    var word = ["FULL-STACK    DEVELOPER", "MAX    CHADLIEV"];
     var nextWord = 1;
   
     var letters = new Letters();
