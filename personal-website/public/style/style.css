@@ -278,4 +278,136 @@ h1 {
   color: pink;
 }
 
+* {
+  box-sizing: border-box;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
 
+body {
+  background: linear-gradient(#111, #1a1a1a);
+}
+
+/* ELEMENT */
+
+.card-flip {
+  margin: 20px auto;
+  cursor: pointer;
+  perspective: 1000px;
+  width: 300px;
+  height: 450px;
+}
+
+.card-flip__flipper {
+  transition: .3s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card-flip__content {
+  width: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+}
+
+.fancy-hover__image {
+  display: block;
+  width: 100%;
+  transition: filter .15s linear .15s;
+}
+
+.fancy-hover__fancy {
+  position: absolute;
+  top: 0;
+  background-color: rgba(55,66,78,0);
+  width: 100%;
+  height: 100%;
+  transition: background .15s linear .15s
+}
+
+.fancy-hover__fancy:after {
+  content: '';
+  background: white;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  transition: left .15s ease-in-out, right .15s ease-in-out;
+}
+
+.fancy-hover__text {
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.fancy-hover__element {
+  width: 100%;
+  position: absolute;
+  padding: 16px;
+}
+
+.fancy-hover__element--title {
+  background: rgba(0,0,0,.5);
+  bottom: 0;
+  font-size: 20px;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  transition: bottom .15s ease-in-out .15s, background .15s linear .15s;
+}
+
+.fancy-hover__element--subtitle {
+  top: 100%;
+  font-family: sans-serif;
+  transition: top .15s ease-out;
+}
+
+.fancy-hover:hover .fancy-hover__image {
+  filter: blur(2px);
+  transition-delay: 0s;
+}
+
+.fancy-hover:hover .fancy-hover__fancy {
+  background: rgba(0,0,0,.5);
+  transition-delay: 0s;
+}
+
+.fancy-hover:hover .fancy-hover__fancy:after {
+  left: 20%;
+  right: 20%;
+  transition-delay: .15s;
+}
+
+.fancy-hover:hover .fancy-hover__element--title {
+  bottom: 50%;
+  background: rgba(0,0,0,0);
+  transition-delay: 0s;
+}
+
+.fancy-hover:hover .fancy-hover__element--subtitle {
+  top: 50%;
+  transition: top .15s ease-in .15s;
+}
+
+.card-flip__content--front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.card-flip__content--back {
+  background: rgb(44,44,44);
+  font-family: sans-serif;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  height: 450px;
+  transform: rotateY(180deg);
+}
+
+.card-flip.clicked .card-flip__flipper {
+  transform: rotateY(180deg);
+}
